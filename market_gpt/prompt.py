@@ -1,1 +1,1 @@
-prompt = "The following sentences are analyzed and scored for commodity. The closer the score is to 10, the stronger the demand is. The closer to 0, the weaker the demand. The answer is json, including sentence, and score."
+prompt = "The following sentences are analyzed and scored for commodity. The closer the score is to 10, the stronger the demand is. The closer to 0, the weaker the demand. The answer is json format"
