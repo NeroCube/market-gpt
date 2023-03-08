@@ -1,20 +1,22 @@
+import os
 import openai
 
 class ChatGPT:
-    def __init__(self, api_key, model_engine="text-davinci-003"):
-        openai.api_key = api_key
-        self.model_engine = model_engine
+    def __init__(self):
+        openai.api_key = str(os.getenv("OPENAI_API_KEY", default = None))
+        self.model_engine = str(os.getenv("MODEL_ENGINE", default = "text-davinci-003"))
 
-    def chat(self, prompt, temperature=0.5, max_tokens=50, stop="\n\n", top_p=1, frequency_penalty=0.3, presence_penalty=0.3):
+    def chat(self, prompt):
+        
         response = openai.Completion.create(
             engine=self.model_engine,
             prompt=prompt,
-            temperature=temperature,
-            max_tokens=max_tokens,
-            stop=stop,
-            top_p=top_p,
-            frequency_penalty=frequency_penalty,
-            presence_penalty=presence_penalty
+            temperature=float(os.getenv("TEMPERATURE", default = 0.5)),
+            max_tokens=int(os.getenv("MAX_TOKENS", default = 4000)),
+            stop=str(os.getenv("STOP", default = "\n\n")),
+            top_p=float(os.getenv("TOP_P", default = 1.0)),
+            frequency_penalty=float(os.getenv("FREQUENCY_PENALTY", default = 0.3)),
+            presence_penalty=float(os.getenv("PRESENCE_PENALTY", default = 0.3)),
         )
         if not response.choices:
             raise Exception("GPT could not generate a response.")
