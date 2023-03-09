@@ -1,6 +1,6 @@
-import json, argparse
+import sys, json, argparse
 from prompt import prompt
-from ChatGPT import ChatGPT
+from chatgpt import ChatGPT
 
 def main():
     # Define the CLI arguments        
@@ -31,4 +31,5 @@ def main():
             print(f"Sentiment score:{score}")        
 
 if __name__ == '__main__':
-  main()
+    sys.exit(main())
+  

@@ -4,16 +4,18 @@ This code defines a command-line interface (CLI) tool called "MarketGPT" for per
 ## Project Structure
 The Python project structure look like this:
 ```
-.
+market-gpt/
 ├── LICENSE
+├── Makefile
 ├── README.md
 ├── market_gpt
-│   ├── ChatGPT.py
 │   ├── __init__.py
-│   ├── __main__.py
+│   ├── _marketgpt_scripts.py
+│   ├── chatgpt.py
 │   ├── prompt.py
 │   └── tests
 │       └── __init__.py
+├── pyproject.toml
 ├── requirements.txt
 ├── setup.cfg
 └── setup.py
@@ -31,6 +33,8 @@ Install from source with:
 ```
 python3 setup.py install
 ```
+![](https://user-images.githubusercontent.com/8331034/224119932-29b6f2e4-963b-4c0c-bc9a-9128fe51d2ea.png)
+
 ## Usage
 The library needs to be configured with your account's secret key which is available on the website. Either set it as the `OPENAI_API_KEY` environment variable before using the library:
 ```

@@ -7,8 +7,8 @@ class ChatGPT:
         self.model_engine = str(os.getenv("MODEL_ENGINE", default = "text-davinci-003"))
 
     def chat(self, prompt):
-        
-        response = openai.Completion.create(
+        try:
+            response = openai.Completion.create(
             engine=self.model_engine,
             prompt=prompt,
             temperature=float(os.getenv("TEMPERATURE", default = 0.5)),
@@ -16,8 +16,9 @@ class ChatGPT:
             stop=str(os.getenv("STOP", default = "\n\n")),
             top_p=float(os.getenv("TOP_P", default = 1.0)),
             frequency_penalty=float(os.getenv("FREQUENCY_PENALTY", default = 0.3)),
-            presence_penalty=float(os.getenv("PRESENCE_PENALTY", default = 0.3)),
-        )
-        if not response.choices:
-            raise Exception("GPT could not generate a response.")
-        return response.choices[0].text.strip()
+            presence_penalty=float(os.getenv("PRESENCE_PENALTY", default = 0.3)),)
+            if not response.choices:
+                raise Exception("GPT could not generate a response.")
+            return response.choices[0].text.strip()
+        except Exception as e:
+            print(f"ChatGPT chat Exception:{str(e)}")
