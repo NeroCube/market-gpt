@@ -1,4 +1,21 @@
-# market-gpt
+# Market GPT
+[![Build Status][build-button]][build]
+[![Coverage Status][codecov-button]][codecov]
+[![Latest Version][mdversion-button]][md-pypi]
+[![Python Versions][pyversion-button]][md-pypi]
+[![MIT License][bsdlicense-button]][bsdlicense]
+
+[build-button]: https://github.com/Python-Markdown/markdown/workflows/CI/badge.svg?event=push
+[build]: https://github.com/NeroCube/market-gpt/actions/new
+[codecov-button]: https://codecov.io/gh/Python-Markdown/markdown/branch/master/graph/badge.svg
+[codecov]: https://codecov.io/gh/Python-Markdown/markdown
+[mdversion-button]: https://img.shields.io/pypi/v/market-gpt.svg
+[md-pypi]: https://pypi.org/project/market-gpt/
+[pyversion-button]: https://img.shields.io/pypi/pyversions/market-gpt.svg
+[bsdlicense-button]: https://img.shields.io/badge/license-MIT-yellow.svg
+[bsdlicense]: https://opensource.org/licenses/BSD-3-Clause
+[codeofconduct-button]: https://img.shields.io/badge/code%20of%20conduct-contributor%20covenant-green.svg?style=flat-square
+
 This code defines a command-line interface (CLI) tool called "MarketGPT" for performing market sentiment analysis using the OpenAI GPT-3 language model.
 
 ## Project Structure
@@ -33,7 +50,6 @@ Install from source with:
 ```
 python3 setup.py install
 ```
-![](https://user-images.githubusercontent.com/8331034/224119932-29b6f2e4-963b-4c0c-bc9a-9128fe51d2ea.png)
 
 ## Usage
 The library needs to be configured with your account's secret key which is available on the website. Either set it as the `OPENAI_API_KEY` environment variable before using the library:
@@ -45,6 +61,12 @@ echo $OPENAI_API_KEY
 Generate your OpenAI secret API key and set it to an environment variable named `OPENAI_API_KEY`.
 
 For more information, read [Where do I find my Secret API Key?](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key)
+
+You can execute the command below. The `commodity` flag use the commodity you want to analysis and input the sentence to get market sentiment score.
+
+The score is a number between 0 and 10. The closer the number is to 10, the stronger the demand for the sentence is, and the closer the number is to 0, the commodity Demand for sentences is weak.
+
+![](https://user-images.githubusercontent.com/8331034/224119932-29b6f2e4-963b-4c0c-bc9a-9128fe51d2ea.png)
 
 ## Requirements
 - Python 3.7.1+
