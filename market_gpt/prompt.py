@@ -1,1 +1,1 @@
-prompt = 'Please evaluate the market sentiment of the sentence according to the commodity provided below and provide a json like {"score": 5}. The score is a number between 0 and 10. The closer the number is to 10, the stronger the demand for the sentence is, and the closer the number is to 0, the commodity Demand for sentences is weak.'
+prompt = 'Evaluate market sentiment for given commodity and provide score format like {"score": 5} range from 0 to 10'
