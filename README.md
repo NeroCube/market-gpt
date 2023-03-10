@@ -1,6 +1,4 @@
 # Market GPT
-[![Build Status][build-button]][build]
-[![Coverage Status][codecov-button]][codecov]
 [![Latest Version][mdversion-button]][md-pypi]
 [![Python Versions][pyversion-button]][md-pypi]
 [![MIT License][bsdlicense-button]][bsdlicense]
@@ -78,7 +76,7 @@ The enviroment variabls in the ChatGPT class specify the parameters that are use
 
 Field Name | Field Type | Required | Default Value | Explain |
 -- | -- | -- | -- | --
-OPENAI_API_KEY | String | Yes | None | 
+OPENAI_API_KEY | String | Yes | None | The API key is used for accessing OpenAI service that can be securely loaded from an environment variable or key management service.|
 MODEL_ENGINE | String | No | "text-davinci-003" |ID of the model to use. You can use the [List models](https://platform.openai.com/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](https://platform.openai.com/docs/models/overview) for descriptions of them.
 TEMPERATURE | Float | No | 0.5 | What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.We generally recommend altering this or `top_p` but not both.
 MAX_TOKENS | Integer | No | 4000 | The maximum number of [tokens](https://platform.openai.com/tokenizer) to generate in the completion.The token count of your prompt plus max_tokens cannot exceed the model's context length. Most models have a context length of 2048 tokens (except for the newest models, which support 4096).
