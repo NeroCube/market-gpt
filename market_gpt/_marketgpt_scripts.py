@@ -1,4 +1,4 @@
-import sys, json, argparse
+import re, sys, json, argparse
 from prompt import prompt
 from chatgpt import ChatGPT
 
@@ -17,12 +17,16 @@ def main():
         user_input = str(input("Please type sentence: "))
         if user_input.lower() in ["exit", "quit", "bye"]:
             break
-        user_input = prompt+"\r\n"+f"sentence={user_input}\r\ncommodity={args.commodity}"
-        response = chatbot.chat(user_input)
+
+        prompt_request = prompt+"\r\n"+f"sentence:{user_input}\r\ncommodity:{args.commodity}"
+        messages = [{"role": "system", "content": "You are a market analyst"}]    
+        messages.append({"role": "user", "content": prompt_request})        
+        response = chatbot.chat_completion(messages)
         print(f"Response:{str(response)}")
         try:                      
-            content = json.loads(str(response))
-            score = int(content["score"])
+            match = re.search(r'{"score":\s*(\d+)}', response)
+            if match:
+                score = int(match.group(1))
             if score not in range(0, 11):
                 raise Exception("The market sentiment score not in the range from 0 to 10.")
         except Exception as e:                   
