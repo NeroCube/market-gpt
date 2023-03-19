@@ -66,6 +66,8 @@ The score is a number between 0 and 10. The closer the number is to 10, the stro
 
 ![](https://user-images.githubusercontent.com/8331034/224119932-29b6f2e4-963b-4c0c-bc9a-9128fe51d2ea.png)
 
+If you set `--explain` flag as `True`.The model will explain the inference reason step by step.
+
 ## Requirements
 - Python 3.7.1+
 
